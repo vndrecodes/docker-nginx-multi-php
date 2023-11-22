@@ -1,5 +1,7 @@
 # docker-nginx-multi-php
-Handle multiple php containers with a single nginx on one host
+Handle multiple php containers with a single nginx on one host  
+
+**This is only for test purposes. Do not use in production, without proper configuration.**
 
 ## Test
 1. Run `docker-compose up -d` in `docker` directory
