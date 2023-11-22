@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8090:80"
+    volumes:
+      - ../www/:/var/www/
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - site_a
+      - site_b
+
+  site_a:
+    container_name: site_a
+    image: php:8.2-fpm
+    volumes:
+      - ../www/site_a:/var/www/
+
+  site_b:
+    container_name: site_b
+    image: php:8.2-fpm
+    volumes:
+      - ../www/site_b:/var/www/
+
+networks:
+  nginx-multi-php:
+
+name: nginx-multi-php
